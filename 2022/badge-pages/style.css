@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,500&display=swap");
+
+* {
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.logo {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.mlsc-shield {
+  width: 8rem;
+  height: 7rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+
+.content {
+  width: 85vw;
+  height: auto;
+  margin: auto;
+  margin-left: 6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* gap: 10rem; */
+  margin-top: 2rem;
+  padding-bottom: 5rem;
+}
+
+.badge {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.info {
+  margin-bottom: 5rem;
+}
+
+.heading {
+  color: #4a9bda;
+  font-family: "Roboto", sans-serif;
+  font-size: 3rem;
+  font-weight: 500;
+  margin: 0.5rem;
+  margin-left: 0;
+}
+
+p {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.75rem;
+  text-align: justify;
+}
+
+input {
+  background: rgba(231, 243, 240, 0.55);
+  border-radius: 7px;
+  width: 95%;
+  height: 3rem;
+}
+
+.align {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.submit {
+  background-color: #efe6e6;
+  border-radius: 30px;
+  height: 3rem;
+  width: auto;
+  color: black;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  /* Alignment of button */
+  margin-top: 1.5rem;
+  margin-right: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  cursor: pointer;
+}
+
+.photo {
+  width: 40%;
+  height: 100%;
+  align-self: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 600px;
+  height: 600px;
+  background-color: #ccc;
+  opacity: 50%;
+  margin: auto;
+}
+
+@media screen and (max-width: 1440px) {
+  .content {
+    width: 90vw;
+    margin-left: 4rem;
+    justify-content: space-around;
+  }
+  p {
+    font-size: 1.25rem;
+  }
+  .circle {
+    width: 450px;
+    height: 450px;
+  }
+  .heading {
+    font-size: 2.25rem;
+  }
+  .mlsc-shield{
+    width: 7rem;
+    height: 6rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .content {
+    width: 90vw;
+    margin-left: 2rem;
+  }
+  .circle {
+    width: 350px;
+    height: 350px;
+  }
+  p {
+    font-size: 1.25rem;
+  }
+  .heading {
+    font-size: 2.25rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .content {
+    width: 90vw;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+  }
+  .badge {
+    width: 100%;
+  }
+  .photo {
+    width: 100%;
+  }
+  .circle {
+    width: 300px;
+    height: 300px;
+  }
+  .mlsc-shield {
+    width: 5rem;
+    height: 5rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+}
