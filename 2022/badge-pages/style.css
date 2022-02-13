@@ -98,8 +98,12 @@ input {
   cursor: pointer;
 }
 
+/*#mycvs{*/
+/*  width: 100%;*/
+/*}*/
+
 .photo {
-  width: 40%;
+  width: 48%;
   height: 100%;
   align-self: center;
   margin-top: 2rem;
