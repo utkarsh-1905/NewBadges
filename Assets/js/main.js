@@ -3,7 +3,7 @@ const heightIm = 750;
 
 
 var userName = "Participant";
-var organizer = "Organizer";
+var team = "Organizer";
 
 var cvs = document.getElementById("mycvs");
 var ctx = cvs.getContext("2d");
@@ -18,6 +18,7 @@ var ctx = cvs.getContext("2d");
 document.querySelector('.form').addEventListener('submit', (e) => {
     e.preventDefault();
     userName = e.target[0].value;
+    team = e.target[1].value;
     clear();
     draw();
 })
@@ -35,7 +36,7 @@ const draw = () => {
     ctx.font = "48px Arial";
     ctx.fillText(userName, cvs.width / 4 - 5, cvs.height - 205);
     ctx.font = "30px Arial";
-    ctx.fillText(organizer, cvs.width / 4 + 42.5, cvs.height - 145);
+    ctx.fillText(team, cvs.width / 4 + 42.5, cvs.height - 145);
 }
 
 // change participant name
