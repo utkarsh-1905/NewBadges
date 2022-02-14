@@ -1,8 +1,8 @@
 const widthIm = 750;
 const heightIm = 750;
 
-var userName = "Participant";
-var team = "Organizer";
+var userName = "Participant Name";
+var team = "Team Name";
 
 var cvs = document.getElementById("mycvs");
 var ctx = cvs.getContext("2d");
@@ -23,60 +23,62 @@ document.querySelector('.form').addEventListener('submit', (e) => {
 })
 
 const clear = () => {
-    ctx.fillStyle = "#00000000"
-    ctx.fillRect(0,0,cvs.width, cvs.height);
+  //ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.clearRect(0, 0, cvs.width, cvs.height);
 }
 
 // Draw Function
 const draw = () => {
-<<<<<<< HEAD
-    var img = document.getElementById("badgeImg");
-    ctx.drawImage(img, 0, 0, widthIm, heightIm);
-    ctx.fillStyle = "white";
-    ctx.font = "48px Arial";
-    ctx.fillText(userName, cvs.width / 4 - 5, cvs.height - 205);
-    ctx.font = "30px Arial";
-    ctx.fillText(team, cvs.width / 4 + 42.5, cvs.height - 145);
-}
-
-// change participant name
-// document.getElementById("changeName").addEventListener('click', (e) => {
-//     userName = "test";
-//     draw();
-// });
-
-window.onload = function () {
-    draw();
-    // throwConfetti()
-};
-
-const throwConfetti = () => {
-    const confettiSettings = {target: 'mycvs'};
-    const confetti = new ConfettiGenerator(confettiSettings);
-    confetti.render();
-    setTimeout(() => {
-        confetti.clear();
-    }, 5000)
-}
-=======
-  var img = document.getElementById("badge");
-  ctx.drawImage(img, 0, 0, widthIm, heightIm);
+  var img = document.getElementById("badgeImg");
+  ctx.drawImage(img, cvs.width/2 - (widthIm + 10)/2, 0, widthIm, heightIm);
   ctx.fillStyle = "white";
   ctx.font = "48px Arial";
-  ctx.fillText(userName, cvs.width / 4 - 5, cvs.height - 205);
+  ctx.textBaseline = 'middle';
+  ctx.textAlign = "center";
+  // ctx.fillText(userName, cvs.width / 4 - 5, cvs.height - 205);
+  console.log(userName.length)
+  ctx.fillText(userName, cvs.width/2 - (userName.length) - 7.5, cvs.height - 215);
   ctx.font = "30px Arial";
-  ctx.fillText(organizer, cvs.width / 4 + 42.5, cvs.height - 145);
+  ctx.fillText(team, cvs.width/2 - (team.length) - 9, cvs.height - 145);
 };
 
-// change participant name
-// document.getElementById("changeName").addEventListener("click", (e) => {
-//   userName = "test";
-//   draw();
-// });
+
+function download() {
+  /// create an "off-screen" anchor tag
+  var lnk = document.createElement('a'), e;
+
+  /// the key here is to set the download attribute of the a tag
+  lnk.download = userName + ":" + team + ".png";
+
+  /// convert canvas content to data-uri for link. When download
+  /// attribute is set the content pointed to by link will be
+  /// pushed as "download" in HTML5 capable browsers
+  lnk.href = cvs.toDataURL("image/png;base64");
+
+  /// create a "fake" click-event to trigger the download
+  if (document.createEvent) {
+    e = document.createEvent("MouseEvents");
+    e.initMouseEvent("click", true, true, window,
+                     0, 0, 0, 0, 0, false, false, false,
+                     false, 0, null);
+
+    lnk.dispatchEvent(e);
+  } else if (lnk.fireEvent) {
+    lnk.fireEvent("onclick");
+  }
+}
+
+
+document.getElementById("down").addEventListener('click', (e) => {
+  download();
+})
+
+
+
 
 window.onload = function () {
   draw();
-  throwConfetti();
+  // throwConfetti();
 };
 const canvasTarget = document.getElementById("mycvs");
 const throwConfetti = () => {
@@ -87,4 +89,4 @@ const throwConfetti = () => {
     confetti.clear();
   }, 5000);
 };
->>>>>>> 1658ec77143a633da0181a48d4fc1fcc459b4180
+

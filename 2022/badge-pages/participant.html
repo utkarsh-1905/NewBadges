@@ -36,38 +36,34 @@
         </div>
         <form class="form">
           <label for="name"><h2 class="heading">NAME</h2></label>
-          <input type="text" id="name" name="name" />
+          <input type="text" id="name" name="name" required/>
           <label for="team-name"><h2 class="heading">TEAM NAME</h2></label>
-          <input type="text" id="team-name" name="teamName" />
+          <input type="text" id="team-name" name="teamName" required/>
           <div class="align"><button class="submit" id="subm">SUBMIT</button></div>
         </form>
+        
       </div>
       <div class="photo">
-<<<<<<< HEAD
-
           <canvas id="mycvs" width="1000px" height="700px"></canvas>
           <img
                   style="display: none;"
+                  width="100%"
                   id="badgeImg"
                   src = "../../Assets/Images/badgefl1.png"
           />
-        </div>
-
-    </div>
-        <script src="node_modules/confetti-js/dist/index.min.js"></script>
-        <script src="../../Assets/js/main.js"></script>
-
-=======
-        <canvas id="mycvs" class="mycvs" width="1000px" height="700px"></canvas>
-        <img
-        style="display: none;"
-        id="badge"
-        src = "../../Assets/Images/badgefl1.png" 
-        />
+          <button class="submit" id="down" class="downbtn">DOWNLOAD</button>
+      </div>
+      <div  style="display:block">
+        
       </div>
     </div>
+
+    <div>
+
+    </div>
+
     <script src="../../node_modules/confetti-js/dist/index.min.js"></script>
     <script src="../../Assets/js/main.js"></script>
->>>>>>> 1658ec77143a633da0181a48d4fc1fcc459b4180
+
   </body>
 </html>
