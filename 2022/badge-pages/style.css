@@ -60,6 +60,10 @@ body {
   margin-left: 0;
 }
 
+down-mag{
+  display:none;
+}
+
 p {
   color: white;
   font-family: "Roboto", sans-serif;
@@ -98,7 +102,7 @@ input {
   cursor: pointer;
 }
 
-.downbtn{
+#down{
   background-color: #efe6e6;
   border-radius: 30px;
   height: 3rem;
@@ -108,14 +112,14 @@ input {
   font-size: 1.5rem;
   font-weight: 500;
   /* Alignment of button */
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   margin-right: 1rem;
+  padding-top: 0.30rem;
   padding-left: 1rem;
   padding-right: 1rem;
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
 }
+
 
 #mycvs{
   width: 100%;
@@ -128,10 +132,26 @@ input {
   align-self: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  margin-left: 10rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .photo {
+    width: 45%;
+    height: 100%;
+    align-self: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 /* .circle {

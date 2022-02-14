@@ -18,7 +18,6 @@ document.querySelector('.form').addEventListener('submit', (e) => {
     e.preventDefault();
     userName = e.target[0].value;
     team = e.target[1].value;
-    document.getElementById("down").style = "visibility: visible;"
     clear();
     draw();
 })
@@ -48,27 +47,24 @@ function download() {
   /// create an "off-screen" anchor tag
   var lnk = document.createElement('a'), e;
 
-  if(!(userName == "Participant Name" || userName == "" || team == "Team Name" || team == "")){
+  /// the key here is to set the download attribute of the a tag
+  lnk.download = userName + ":" + team + ".png";
 
-    /// the key here is to set the download attribute of the a tag
-    lnk.download = userName + ":" + team + ".png";
+  /// convert canvas content to data-uri for link. When download
+  /// attribute is set the content pointed to by link will be
+  /// pushed as "download" in HTML5 capable browsers
+  lnk.href = cvs.toDataURL("image/png;base64");
 
-    /// convert canvas content to data-uri for link. When download
-    /// attribute is set the content pointed to by link will be
-    /// pushed as "download" in HTML5 capable browsers
-    lnk.href = cvs.toDataURL("image/png;base64");
+  /// create a "fake" click-event to trigger the download
+  if (document.createEvent) {
+    e = document.createEvent("MouseEvents");
+    e.initMouseEvent("click", true, true, window,
+                     0, 0, 0, 0, 0, false, false, false,
+                     false, 0, null);
 
-    /// create a "fake" click-event to trigger the download
-    if (document.createEvent) {
-      e = document.createEvent("MouseEvents");
-      e.initMouseEvent("click", true, true, window,
-                      0, 0, 0, 0, 0, false, false, false,
-                      false, 0, null);
-
-      lnk.dispatchEvent(e);
-    } else if (lnk.fireEvent) {
-      lnk.fireEvent("onclick");
-    }
+    lnk.dispatchEvent(e);
+  } else if (lnk.fireEvent) {
+    lnk.fireEvent("onclick");
   }
 }
 
@@ -91,6 +87,9 @@ function dataURItoBlob(dataURI) {
   }
   return new Blob([ab], {type: 'image/png'});
 }
+
+
+
 
 
 
