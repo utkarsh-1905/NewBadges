@@ -1,7 +1,6 @@
 const widthIm = 750;
 const heightIm = 750;
 
-
 var userName = "Participant";
 var team = "Organizer";
 
@@ -30,6 +29,7 @@ const clear = () => {
 
 // Draw Function
 const draw = () => {
+<<<<<<< HEAD
     var img = document.getElementById("badgeImg");
     ctx.drawImage(img, 0, 0, widthIm, heightIm);
     ctx.fillStyle = "white";
@@ -58,3 +58,33 @@ const throwConfetti = () => {
         confetti.clear();
     }, 5000)
 }
+=======
+  var img = document.getElementById("badge");
+  ctx.drawImage(img, 0, 0, widthIm, heightIm);
+  ctx.fillStyle = "white";
+  ctx.font = "48px Arial";
+  ctx.fillText(userName, cvs.width / 4 - 5, cvs.height - 205);
+  ctx.font = "30px Arial";
+  ctx.fillText(organizer, cvs.width / 4 + 42.5, cvs.height - 145);
+};
+
+// change participant name
+// document.getElementById("changeName").addEventListener("click", (e) => {
+//   userName = "test";
+//   draw();
+// });
+
+window.onload = function () {
+  draw();
+  throwConfetti();
+};
+const canvasTarget = document.getElementById("mycvs");
+const throwConfetti = () => {
+  const confettiSettings = { target: canvasTarget };
+  const confetti = new ConfettiGenerator(confettiSettings);
+  confetti.render();
+  setTimeout(() => {
+    confetti.clear();
+  }, 5000);
+};
+>>>>>>> 1658ec77143a633da0181a48d4fc1fcc459b4180

@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "newbadgepage",
   "version": "1.0.0",
   "description": "",
@@ -16,6 +17,8 @@
     "url": "https://github.com/destrex271/NewBadges/issues"
   },
   "homepage": "https://github.com/destrex271/NewBadges#readme",
+=======
+>>>>>>> 1658ec77143a633da0181a48d4fc1fcc459b4180
   "dependencies": {
     "confetti-js": "^0.0.18"
   }
