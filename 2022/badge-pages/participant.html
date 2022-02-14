@@ -8,8 +8,7 @@
     <title>Participant</title>
   </head>
   <body>
-
-        <!-- MLSC Logo -->
+    <!-- MLSC Logo -->
 
     <div class="logo">
       <img class="mlsc-shield" src="../mlsc_shield_new.png" alt="mlsc sheild" />
@@ -17,9 +16,25 @@
 
     <!-- MLH badge -->
 
-    <a id="mlh-trust-badge" style="display:block;max-width:100px;min-width:60px;position:fixed;right:50px;top:0;width:10%;
-      z-index:10000" href="https://mlh.io/seasons/2022/events?utm_source=apac-hackathon&utm_medium=TrustBadge&utm_campaign=2022-season&utm_content=white" target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2022/mlh-trust-badge-2022-white.svg" alt="Major League Hacking 2022 Hackathon Season" 
-        style="width:90%"></a>
+    <a
+      id="mlh-trust-badge"
+      style="
+        display: block;
+        max-width: 100px;
+        min-width: 60px;
+        position: fixed;
+        right: 50px;
+        top: 0;
+        width: 10%;
+        z-index: 10000;
+      "
+      href="https://mlh.io/seasons/2022/events?utm_source=apac-hackathon&utm_medium=TrustBadge&utm_campaign=2022-season&utm_content=white"
+      target="_blank"
+      ><img
+        src="https://s3.amazonaws.com/logged-assets/trust-badge/2022/mlh-trust-badge-2022-white.svg"
+        alt="Major League Hacking 2022 Hackathon Season"
+        style="width: 90%"
+    /></a>
 
     <!-- Body -->
 
@@ -39,35 +54,37 @@
           <input type="text" id="name" name="name" />
           <label for="team-name"><h2 class="heading">TEAM NAME</h2></label>
           <input type="text" id="team-name" name="teamName" />
-          <div class="align"><button class="submit" id="subm">SUBMIT</button></div>
+          <div class="align">
+            <button class="submit" id="subm">SUBMIT</button>
+          </div>
         </form>
       </div>
       <div class="photo">
-<<<<<<< HEAD
-
-          <canvas id="mycvs" width="1000px" height="700px"></canvas>
-          <img
-                  style="display: none;"
-                  id="badgeImg"
-                  src = "../../Assets/Images/badgefl1.png"
-          />
-        </div>
-
-    </div>
-        <script src="node_modules/confetti-js/dist/index.min.js"></script>
-        <script src="../../Assets/js/main.js"></script>
-
-=======
         <canvas id="mycvs" class="mycvs" width="1000px" height="700px"></canvas>
         <img
-        style="display: none;"
-        id="badge"
-        src = "../../Assets/Images/badgefl1.png" 
+          style="display: none"
+          id="badge"
+          src="../../Assets/Images/badgefl1.png"
         />
+        <!-- <a
+          href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+          class="twitter-share-button"
+          data-size="large"
+          data-text="Hello i gotjust got my badge"
+          data-show-count="false"
+          >Tweet</a
+        >
+        <script
+          async
+          src="https://platform.twitter.com/widgets.js"
+          charset="utf-8"
+        ></script> -->
+        <button class="linkedin">LinkedIn</button>
       </div>
     </div>
+
     <script src="../../node_modules/confetti-js/dist/index.min.js"></script>
+    <script src="../../Assets/js/linkedin.js"></script>
     <script src="../../Assets/js/main.js"></script>
->>>>>>> 1658ec77143a633da0181a48d4fc1fcc459b4180
   </body>
 </html>

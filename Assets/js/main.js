@@ -2,63 +2,26 @@ const widthIm = 750;
 const heightIm = 750;
 
 var userName = "Participant";
-var team = "Organizer";
-
+var organizer = "Organizer";
+window.lcode;
 var cvs = document.getElementById("mycvs");
 var ctx = cvs.getContext("2d");
 
-
-// const change = (e) => {
-//     e.preventDefault();
-//     console.log(e.target.value)
-//     // const usname = document.getElementById("name").value;
-// }
-
-document.querySelector('.form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    userName = e.target[0].value;
-    team = e.target[1].value;
-    clear();
-    draw();
-})
+document.querySelector(".form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  userName = e.target[0].value;
+  team = e.target[1].value;
+  clear();
+  draw();
+});
 
 const clear = () => {
-    ctx.fillStyle = "#00000000"
-    ctx.fillRect(0,0,cvs.width, cvs.height);
-}
+  ctx.fillStyle = "#00000000";
+  ctx.fillRect(0, 0, cvs.width, cvs.height);
+};
 
 // Draw Function
 const draw = () => {
-<<<<<<< HEAD
-    var img = document.getElementById("badgeImg");
-    ctx.drawImage(img, 0, 0, widthIm, heightIm);
-    ctx.fillStyle = "white";
-    ctx.font = "48px Arial";
-    ctx.fillText(userName, cvs.width / 4 - 5, cvs.height - 205);
-    ctx.font = "30px Arial";
-    ctx.fillText(team, cvs.width / 4 + 42.5, cvs.height - 145);
-}
-
-// change participant name
-// document.getElementById("changeName").addEventListener('click', (e) => {
-//     userName = "test";
-//     draw();
-// });
-
-window.onload = function () {
-    draw();
-    // throwConfetti()
-};
-
-const throwConfetti = () => {
-    const confettiSettings = {target: 'mycvs'};
-    const confetti = new ConfettiGenerator(confettiSettings);
-    confetti.render();
-    setTimeout(() => {
-        confetti.clear();
-    }, 5000)
-}
-=======
   var img = document.getElementById("badge");
   ctx.drawImage(img, 0, 0, widthIm, heightIm);
   ctx.fillStyle = "white";
@@ -68,16 +31,30 @@ const throwConfetti = () => {
   ctx.fillText(organizer, cvs.width / 4 + 42.5, cvs.height - 145);
 };
 
-// change participant name
-// document.getElementById("changeName").addEventListener("click", (e) => {
-//   userName = "test";
-//   draw();
-// });
-
-window.onload = function () {
+window.onload = async function () {
   draw();
   throwConfetti();
+  const url_string = window.location.href;
+  const url = new URL(url_string);
+  const code = url.searchParams.get("code");
+  if (code) {
+    const oauth_access_payload = {
+      grant_type: "authorization_code",
+      code: code,
+      redirect_uri: "http://127.0.0.1:5500/2022/badge-pages/participant.html",
+      client_id: "860rhmsc6a7xdy",
+      client_secret: "1LO1D1kVWClIYkGx",
+    };
+    console.log(code);
+    const data = await fetch("https://www.linkedin.com/oauth/v2/accessToken", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+      },
+    });
+  }
 };
+
 const canvasTarget = document.getElementById("mycvs");
 const throwConfetti = () => {
   const confettiSettings = { target: canvasTarget };
@@ -87,4 +64,3 @@ const throwConfetti = () => {
     confetti.clear();
   }, 5000);
 };
->>>>>>> 1658ec77143a633da0181a48d4fc1fcc459b4180

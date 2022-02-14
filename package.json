@@ -1,25 +1,23 @@
 {
-<<<<<<< HEAD
-  "name": "newbadgepage",
+  "name": "newbadges",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "index.js",
+  "dependencies": {
+    "confetti-js": "^0.0.18"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/destrex271/NewBadges.git"
+    "url": "git+https://github.com/utkarsh-1905/NewBadges.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/destrex271/NewBadges/issues"
+    "url": "https://github.com/utkarsh-1905/NewBadges/issues"
   },
-  "homepage": "https://github.com/destrex271/NewBadges#readme",
-=======
->>>>>>> 1658ec77143a633da0181a48d4fc1fcc459b4180
-  "dependencies": {
-    "confetti-js": "^0.0.18"
-  }
+  "homepage": "https://github.com/utkarsh-1905/NewBadges#readme"
 }
