@@ -60,8 +60,8 @@ body {
   margin-left: 0;
 }
 
-down-mag{
-  display:none;
+down-mag {
+  display: none;
 }
 
 p {
@@ -78,7 +78,7 @@ input {
   height: 3rem;
 }
 
-.align{
+.align {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -102,7 +102,7 @@ input {
   cursor: pointer;
 }
 
-#down{
+#down {
   background-color: #efe6e6;
   border-radius: 30px;
   height: 3rem;
@@ -114,16 +114,22 @@ input {
   /* Alignment of button */
   margin-top: 2rem;
   margin-right: 1rem;
-  padding-top: 0.30rem;
+  padding-top: 0.3rem;
   padding-left: 1rem;
   padding-right: 1rem;
   cursor: pointer;
 }
 
-
-#mycvs{
+#mycvs {
   width: 100%;
   height: 100%;
+}
+#mycvs2 {
+  width: 100%;
+  height: 75%;
+  z-index: 100;
+  top: 0;
+  position: absolute;
 }
 
 .photo {
@@ -137,6 +143,7 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 @media screen and (max-width: 1200px) {
@@ -179,7 +186,7 @@ input {
   .heading {
     font-size: 2.25rem;
   }
-  .mlsc-shield{
+  .mlsc-shield {
     width: 7rem;
     height: 6rem;
   }
