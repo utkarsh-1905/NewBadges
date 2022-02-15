@@ -3,7 +3,7 @@ const heightIm = 750;
 
 var userName = "Participant Name";
 var team = "Team Name";
-
+var code = "";
 var cvs = document.getElementById("mycvs");
 var ctx = cvs.getContext("2d");
 
@@ -37,7 +37,7 @@ const draw = () => {
   ctx.textBaseline = "middle";
   ctx.textAlign = "center";
   // ctx.fillText(userName, cvs.width / 4 - 5, cvs.height - 205);
-  console.log(userName.length);
+  // console.log(userName.length);
   ctx.fillText(
     userName,
     cvs.width / 2 - userName.length - 7.5,
@@ -49,25 +49,8 @@ const draw = () => {
 
 window.onload = async function () {
   draw();
-  const url_string = window.location.href;
-  const url = new URL(url_string);
-  const code = url.searchParams.get("code");
-  if (code) {
-    const oauth_access_payload = {
-      grant_type: "authorization_code",
-      code: code,
-      redirect_uri: "http://127.0.0.1:5500/2022/badge-pages/participant.html",
-      client_id: "860rhmsc6a7xdy",
-      client_secret: "1LO1D1kVWClIYkGx",
-    };
-    console.log(code);
-    const data = await fetch("https://www.linkedin.com/oauth/v2/accessToken", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-      },
-    });
-  }
+  await linkedinAuthToken();
+  await linkedinAccessToken();
 };
 
 function download() {
@@ -142,3 +125,59 @@ const throwConfetti = () => {
     confetti.clear();
   }, 5000);
 };
+
+//Social Buttons
+
+const btn = document.querySelector(".linkedin");
+
+btn.addEventListener("click", () => {
+  window.open(
+    "https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=860rhmsc6a7xdy&redirect_uri=http%3A%2F%2F127.0.0.1%3A5500%2F2022%2Fbadge-pages%2Fparticipant.html&state=foobar&scope=r_liteprofile%20r_emailaddress%20w_member_social"
+  );
+});
+
+const linkedinAuthToken = async () => {
+  //getting oauth2 token
+  const url_string = window.location.href;
+  const url = new URL(url_string);
+  code = url.searchParams.get("code");
+  //Getting access token
+  if (code) {
+    console.log(code);
+  }
+};
+
+const linkedinAccessToken = async () => {
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+  // myHeaders.append(
+  //   "Cookie",
+  //   'bcookie="v=2&3146a8b4-c69e-48ac-8cea-6266ecd62e48"; lang=v=2&lang=en-us; lidc="b=OB66:s=O:r=O:a=O:p=O:g=2602:u=170:x=1:i=1644939846:t=1645022580:v=2:sig=AQGxgkUHxcQttL_gu0I4CZC27_c04Y5p"; bscookie="v=1&2022021318185434af5ec6-7c59-4e87-8d24-258c49c1b47aAQEQ-0g9f1rNkowj6ffqC0AlQp2FcUrC"'
+  // );
+
+  var urlencoded = new URLSearchParams();
+  urlencoded.append("grant_type", "authorization_code");
+  urlencoded.append("code", code);
+  urlencoded.append("client_id", "860rhmsc6a7xdy");
+  urlencoded.append("client_secret", "1LO1D1kVWClIYkGx");
+  urlencoded.append(
+    "redirect_uri",
+    "http://127.0.0.1:5500/2022/badge-pages/participant.html"
+  );
+
+  var requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: urlencoded,
+    redirect: "follow",
+  };
+
+  const accessData = await fetch(
+    "https://www.linkedin.com/oauth/v2/accessToken",
+    requestOptions
+  );
+  const access_token = await accessData.text();
+  console.log(access_token);
+};
+
+// module.export = { linkedinAuthToken, linkedinAccessToken };
