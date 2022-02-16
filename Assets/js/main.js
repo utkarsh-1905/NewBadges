@@ -117,34 +117,49 @@ function dataURItoBlob(dataURI) {
 //Confetti config
 const canvasTarget = document.getElementById("mycvs2");
 const throwConfetti = () => {
-  const confettiSettings = { target: canvasTarget };
+  const confettiSettings = { target: canvasTarget, clock: 50, rotate: true };
   const confetti = new ConfettiGenerator(confettiSettings);
   confetti.render();
   setTimeout(() => {
     confetti.clear();
-  }, 5000);
+  }, 3000);
 };
 
 //Social Buttons
 
-// const shareBtn = document.querySelector(".share");
+const shareBtn = document.querySelector(".share");
 
-// shareBtn.addEventListener("click", async () => {
-//   fetch("https://api.cloudinary.com/v1_1/dhoayd4fv/image/upload", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify({
-//       file: cvs.toDataURL("image/png;base64"),
-//       upload_preset: "jnrod77e",
-//     }),
-//   })
-//     .then((response) => response.json())
-//     .then((result) => {
-//       localStorage.setItem("imgUrl", result.url); //save image url to local storage
-//       console.log("upload done");
-//     })
-//     .catch((e) => console.log(e));
-//   console.log(localStorage.getItem("imgUrl"));
-// });
+shareBtn.addEventListener("click", async () => {
+  fetch("https://api.cloudinary.com/v1_1/dhoayd4fv/image/upload", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      file: cvs.toDataURL("image/png;base64"),
+      upload_preset: "jnrod77e",
+    }),
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      localStorage.setItem("imgUrl", result.url); //save image url to local storage
+      console.log("upload done");
+    })
+    .catch((e) => console.log(e));
+  console.log(localStorage.getItem("imgUrl"));
+});
+
+const linkedin = document.querySelector(".linkedin");
+const twitter = document.querySelector(".twitter");
+
+linkedin.addEventListener("click", () => {
+  window.open(
+    "https://www.linkedin.com/shareArticle?mini=true&url=https://res.cloudinary.com/dhoayd4fv/image/upload/v1645004223/badge_page/xa6kjejmazoliulpz2lg.png&title=Share%20Your%20Badge"
+  );
+});
+
+twitter.addEventListener("click", () => {
+  window.open(
+    "https://twitter.com/intent/tweet?text=Hello%20world&url=https%3A%2F%2Fres.cloudinary.com%2Fdhoayd4fv%2Fimage%2Fupload%2Fv1645004223%2Fbadge_page%2Fxa6kjejmazoliulpz2lg.png"
+  );
+});
