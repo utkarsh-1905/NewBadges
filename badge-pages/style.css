@@ -150,6 +150,15 @@ input {
   position: relative;
 }
 
+.qoute {
+  visibility: hidden;
+  color: #4a9bda;
+  text-align: justify;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
 @media screen and (max-width: 1200px) {
   #photo {
     width: 45%;

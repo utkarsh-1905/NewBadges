@@ -19,6 +19,7 @@ document.querySelector(".form").addEventListener("submit", (e) => {
   team = e.target[1].value;
   document.getElementById("down").style = "visibility: visible;";
   document.getElementById("share").style = "visibility: visible;";
+  document.querySelector(".qoute").style = "visibility: visible;";
   clear();
   draw();
   throwConfetti();
@@ -117,7 +118,7 @@ function dataURItoBlob(dataURI) {
 //Confetti config
 const canvasTarget = document.getElementById("mycvs2");
 const throwConfetti = () => {
-  const confettiSettings = { target: canvasTarget, clock: 50, rotate: true };
+  const confettiSettings = { target: canvasTarget, clock: 30, rotate: true };
   const confetti = new ConfettiGenerator(confettiSettings);
   confetti.render();
   setTimeout(() => {
