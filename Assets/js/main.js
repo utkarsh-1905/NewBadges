@@ -18,6 +18,7 @@ document.querySelector(".form").addEventListener("submit", (e) => {
   userName = e.target[0].value;
   team = e.target[1].value;
   document.getElementById("down").style = "visibility: visible;";
+  document.getElementById("share").style = "visibility: visible;";
   clear();
   draw();
   throwConfetti();
@@ -49,8 +50,6 @@ const draw = () => {
 
 window.onload = async function () {
   draw();
-  await linkedinAuthToken();
-  await linkedinAccessToken();
 };
 
 function download() {
@@ -118,66 +117,49 @@ function dataURItoBlob(dataURI) {
 //Confetti config
 const canvasTarget = document.getElementById("mycvs2");
 const throwConfetti = () => {
-  const confettiSettings = { target: canvasTarget };
+  const confettiSettings = { target: canvasTarget, clock: 50, rotate: true };
   const confetti = new ConfettiGenerator(confettiSettings);
   confetti.render();
   setTimeout(() => {
     confetti.clear();
-  }, 5000);
+  }, 3000);
 };
 
 //Social Buttons
 
-const btn = document.querySelector(".linkedin");
+const shareBtn = document.querySelector(".share");
 
-btn.addEventListener("click", () => {
+shareBtn.addEventListener("click", async () => {
+  fetch("https://api.cloudinary.com/v1_1/dhoayd4fv/image/upload", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      file: cvs.toDataURL("image/png;base64"),
+      upload_preset: "jnrod77e",
+    }),
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      localStorage.setItem("imgUrl", result.url); //save image url to local storage
+      console.log("upload done");
+    })
+    .catch((e) => console.log(e));
+  console.log(localStorage.getItem("imgUrl"));
+});
+
+const linkedin = document.querySelector(".linkedin");
+const twitter = document.querySelector(".twitter");
+
+linkedin.addEventListener("click", () => {
   window.open(
-    "https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=860rhmsc6a7xdy&redirect_uri=http%3A%2F%2F127.0.0.1%3A5500%2F2022%2Fbadge-pages%2Fparticipant.html&state=foobar&scope=r_liteprofile%20r_emailaddress%20w_member_social"
+    "https://www.linkedin.com/shareArticle?mini=true&url=https://res.cloudinary.com/dhoayd4fv/image/upload/v1645004223/badge_page/xa6kjejmazoliulpz2lg.png&title=Share%20Your%20Badge"
   );
 });
 
-const linkedinAuthToken = async () => {
-  //getting oauth2 token
-  const url_string = window.location.href;
-  const url = new URL(url_string);
-  code = url.searchParams.get("code");
-  //Getting access token
-  if (code) {
-    console.log(code);
-  }
-};
-
-const linkedinAccessToken = async () => {
-  var myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-  // myHeaders.append(
-  //   "Cookie",
-  //   'bcookie="v=2&3146a8b4-c69e-48ac-8cea-6266ecd62e48"; lang=v=2&lang=en-us; lidc="b=OB66:s=O:r=O:a=O:p=O:g=2602:u=170:x=1:i=1644939846:t=1645022580:v=2:sig=AQGxgkUHxcQttL_gu0I4CZC27_c04Y5p"; bscookie="v=1&2022021318185434af5ec6-7c59-4e87-8d24-258c49c1b47aAQEQ-0g9f1rNkowj6ffqC0AlQp2FcUrC"'
-  // );
-
-  var urlencoded = new URLSearchParams();
-  urlencoded.append("grant_type", "authorization_code");
-  urlencoded.append("code", code);
-  urlencoded.append("client_id", "860rhmsc6a7xdy");
-  urlencoded.append("client_secret", "1LO1D1kVWClIYkGx");
-  urlencoded.append(
-    "redirect_uri",
-    "http://127.0.0.1:5500/2022/badge-pages/participant.html"
+twitter.addEventListener("click", () => {
+  window.open(
+    "https://twitter.com/intent/tweet?text=Hello%20world&url=https%3A%2F%2Fres.cloudinary.com%2Fdhoayd4fv%2Fimage%2Fupload%2Fv1645004223%2Fbadge_page%2Fxa6kjejmazoliulpz2lg.png"
   );
-
-  var requestOptions = {
-    method: "POST",
-    headers: myHeaders,
-    body: urlencoded,
-    redirect: "follow",
-  };
-
-  const accessData = await fetch(
-    "https://www.linkedin.com/oauth/v2/accessToken",
-    requestOptions
-  );
-  const access_token = await accessData.text();
-  console.log(access_token);
-};
-
-// module.export = { linkedinAuthToken, linkedinAccessToken };
+});
