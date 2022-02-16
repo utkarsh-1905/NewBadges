@@ -159,8 +159,12 @@ linkedin.addEventListener("click", () => {
   );
 });
 
+const url = window.location.href; // Grabs the current url
+// const imgURL = "https://res.cloudinary.com/dhoayd4fv/image/upload/v1645004223/badge_page/xa6kjejmazoliulpz2lg.png";
+// const title = "I got this supercool swish badge, to get yours participate in Makeathon 4.0".replace(" ","%20");
+//  "https://twitter.com/intent/tweet?text=Hello%20world&url=https%3A%2F%2Fres.cloudinary.com%2Fdhoayd4fv%2Fimage%2Fupload%2Fv1645004223%2Fbadge_page%2Fxa6kjejmazoliulpz2lg.png"
 twitter.addEventListener("click", () => {
   window.open(
-    "https://twitter.com/intent/tweet?text=Hello%20world&url=https%3A%2F%2Fres.cloudinary.com%2Fdhoayd4fv%2Fimage%2Fupload%2Fv1645004223%2Fbadge_page%2Fxa6kjejmazoliulpz2lg.png"
+    "https://twitter.com/intent/tweet?&url=" + url
   );
 });
