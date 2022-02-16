@@ -102,6 +102,15 @@ input {
   cursor: pointer;
 }
 
+.action-buttons {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1rem;
+}
+
 #down,
 #share {
   background-color: #efe6e6;
@@ -112,12 +121,6 @@ input {
   font-family: "Roboto", sans-serif;
   font-size: 1.5rem;
   font-weight: 500;
-  /* Alignment of button */
-  margin-top: 2rem;
-  margin-right: 1rem;
-  padding-top: 0.3rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
   cursor: pointer;
 }
 
@@ -142,7 +145,7 @@ input {
   margin-left: 10rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   position: relative;
 }
@@ -157,7 +160,7 @@ input {
     margin-left: 0rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
   }
 }
@@ -224,6 +227,15 @@ input {
   #photo {
     width: 100%;
   }
+  #share,
+  #down,
+  #subm {
+    height: 2rem;
+    font-size: 1rem;
+  }
+  .action-buttons {
+    margin: 0.25rem;
+  }
   /* .circle {
     width: 300px;
     height: 300px;
@@ -239,5 +251,3 @@ input {
   }
 }
 /* Modal Styling */
-.modal-content {
-}

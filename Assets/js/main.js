@@ -1,8 +1,8 @@
 const widthIm = 750;
 const heightIm = 750;
 
-var userName = "Participant Name";
-var team = "Team Name";
+var userName = "Name";
+var team = "Team / Organizer";
 var code = "";
 var cvs = document.getElementById("mycvs");
 var ctx = cvs.getContext("2d");
@@ -59,9 +59,9 @@ function download() {
 
   if (
     !(
-      userName == "Participant Name" ||
+      userName == "Name" ||
       userName == "" ||
-      team == "Team Name" ||
+      team == "Team / Organizer" ||
       team == ""
     )
   ) {
