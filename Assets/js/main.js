@@ -15,6 +15,7 @@ var ctx = cvs.getContext("2d");
 
 document.querySelector(".form").addEventListener("submit", (e) => {
   e.preventDefault();
+  localStorage.clear();
   userName = e.target[0].value;
   team = e.target[1].value;
   document.getElementById("down").style = "visibility: visible;";
@@ -131,23 +132,27 @@ const throwConfetti = () => {
 const shareBtn = document.querySelector(".share");
 
 shareBtn.addEventListener("click", async () => {
-  fetch("https://api.cloudinary.com/v1_1/dhoayd4fv/image/upload", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      file: cvs.toDataURL("image/png;base64"),
-      upload_preset: "jnrod77e",
-    }),
-  })
-    .then((response) => response.json())
-    .then((result) => {
-      localStorage.setItem("imgUrl", result.url); //save image url to local storage
-      console.log("upload done");
+  if (localStorage.getItem("imgUrl") == null) {
+    fetch("https://api.cloudinary.com/v1_1/dhoayd4fv/image/upload", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        file: cvs.toDataURL("image/png;base64"),
+        upload_preset: "jnrod77e",
+      }),
     })
-    .catch((e) => console.log(e));
-  console.log(localStorage.getItem("imgUrl"));
+      .then((response) => response.json())
+      .then((result) => {
+        localStorage.setItem("imgUrl", result.url); //save image url to local storage
+        document.querySelector(".iframe").src = localStorage.getItem("imgUrl");
+        // console.log("upload done");
+      })
+      .catch((e) => console.log(e));
+  } else {
+    document.querySelector(".iframe").src = localStorage.getItem("imgUrl");
+  }
 });
 
 const linkedin = document.querySelector(".linkedin");
@@ -155,16 +160,15 @@ const twitter = document.querySelector(".twitter");
 
 linkedin.addEventListener("click", () => {
   window.open(
-    "https://www.linkedin.com/shareArticle?mini=true&url=https://res.cloudinary.com/dhoayd4fv/image/upload/v1645004223/badge_page/xa6kjejmazoliulpz2lg.png&title=Share%20Your%20Badge"
+    `https://www.linkedin.com/shareArticle?mini=true&url=${localStorage.getItem(
+      "imgUrl"
+    )}&title=Share%20Your%20Badge`
+  );
+});
+twitter.addEventListener("click", () => {
+  window.open(
+    `https://twitter.com/intent/tweet?&url=${window.location.href}&text=I%20got%20this%20supercool%20swish%20badge%2C%20to%20get%20yours%20participate%20in%20Makeathon%204.0%0A&hashtags=mlsc%2Ctiet%2Cmake4thon%2Chashdeveloper%2Cdeveloper%2Chackathon%2Cwebdeveloper`
   );
 });
 
-const url = window.location.href; // Grabs the current url
-// const imgURL = "https://res.cloudinary.com/dhoayd4fv/image/upload/v1645004223/badge_page/xa6kjejmazoliulpz2lg.png";
-// const title = "I got this supercool swish badge, to get yours participate in Makeathon 4.0".replace(" ","%20");
-//  "https://twitter.com/intent/tweet?text=Hello%20world&url=https%3A%2F%2Fres.cloudinary.com%2Fdhoayd4fv%2Fimage%2Fupload%2Fv1645004223%2Fbadge_page%2Fxa6kjejmazoliulpz2lg.png"
-twitter.addEventListener("click", () => {
-  window.open(
-    "https://twitter.com/intent/tweet?&url=" + url
-  );
-});
+// https://res.cloudinary.com/dhoayd4fv/image/upload/v1645032149/badge_page/ueynakjhkdoggw4nve6j.png
