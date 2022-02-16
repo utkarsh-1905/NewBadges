@@ -1,7 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,500;1,100;1,500&display=swap");
 
 * {
   margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -35,7 +40,6 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* gap: 10rem; */
   margin-top: 2rem;
   padding-bottom: 5rem;
 }
@@ -53,7 +57,15 @@ body {
 
 #heading {
   color: #4a9bda;
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0.5rem;
+  margin-left: 0;
+}
+#main_heading {
+  color: #4a9bda;
+  font-family: "Montserrat", sans-serif;
   font-size: 3rem;
   font-weight: 500;
   margin: 0.5rem;
@@ -69,6 +81,8 @@ p {
   font-family: "Roboto", sans-serif;
   font-size: 1.75rem;
   text-align: justify;
+  margin-top: 3rem;
+  z-index: 10;
 }
 
 input {
@@ -88,12 +102,13 @@ input {
 #subm {
   background-color: #efe6e6;
   border-radius: 30px;
-  height: 3rem;
+  height: 2rem;
   width: auto;
   color: black;
-  font-family: "Roboto", sans-serif;
-  font-size: 1.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.25rem;
   font-weight: 500;
+  /* font-style: italic; */
   /* Alignment of button */
   margin-top: 1.5rem;
   margin-right: 1rem;
@@ -104,7 +119,7 @@ input {
 
 .action-buttons {
   display: flex;
-  width: 100%;
+  width: 60%;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
@@ -113,15 +128,21 @@ input {
 
 #down,
 #share {
-  background-color: #efe6e6;
-  border-radius: 30px;
-  height: 3rem;
-  width: auto;
+  height: 2rem;
+  width: 45%;
   color: black;
-  font-family: "Roboto", sans-serif;
-  font-size: 1.5rem;
-  font-weight: 500;
+  padding: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#down {
+  padding: 1rem;
 }
 
 #mycvs {
@@ -150,6 +171,16 @@ input {
   position: relative;
 }
 
+.qoute {
+  visibility: hidden;
+  color: #4a9bda;
+  text-align: justify;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
 @media screen and (max-width: 1200px) {
   #photo {
     width: 45%;
@@ -165,15 +196,6 @@ input {
   }
 }
 
-/* .circle {
-  border-radius: 50%;
-  width: 600px;
-  height: 600px;
-  background-color: #ccc;
-  opacity: 50%;
-  margin: auto;
-} */
-
 @media screen and (max-width: 1440px) {
   #content {
     width: 90vw;
@@ -183,12 +205,8 @@ input {
   p {
     font-size: 1.25rem;
   }
-  /* .circle {
-    width: 450px;
-    height: 450px;
-  } */
   #heading {
-    font-size: 2.25rem;
+    font-size: 1.5rem;
   }
   .mlsc-shield {
     width: 7rem;
@@ -201,15 +219,11 @@ input {
     width: 90vw;
     margin-left: 2rem;
   }
-  /* .circle {
-    width: 350px;
-    height: 350px;
-  } */
   p {
     font-size: 1.25rem;
   }
   #heading {
-    font-size: 2.25rem;
+    font-size: 1.5rem;
   }
 }
 @media screen and (max-width: 768px) {
@@ -227,6 +241,9 @@ input {
   #photo {
     width: 100%;
   }
+  #heading {
+    font-size: 1.25rem;
+  }
   #share,
   #down,
   #subm {
@@ -236,18 +253,29 @@ input {
   .action-buttons {
     margin: 0.25rem;
   }
-  /* .circle {
-    width: 300px;
-    height: 300px;
-  } */
-  .mlsc-shield {
-    width: 5rem;
-    height: 5rem;
-    margin-top: 1rem;
-    margin-left: 1rem;
-  }
   p {
     font-size: 1rem;
   }
 }
 /* Modal Styling */
+
+.modal-content {
+  background-color: #161b22;
+}
+
+.modal-body {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modal-share-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 80%;
+  align-items: center;
+}
