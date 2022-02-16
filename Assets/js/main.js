@@ -127,24 +127,24 @@ const throwConfetti = () => {
 
 //Social Buttons
 
-const shareBtn = document.getElementById("share");
+// const shareBtn = document.querySelector(".share");
 
-shareBtn.addEventListener("click", async () => {
-  fetch("https://api.cloudinary.com/v1_1/dhoayd4fv/image/upload", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      file: cvs.toDataURL("image/png;base64"),
-      upload_preset: "jnrod77e",
-    }),
-  })
-    .then((response) => response.json())
-    .then((result) => {
-      localStorage.setItem("imgUrl", result.url); //save image url to local storage
-      console.log("upload done");
-    })
-    .catch((e) => console.log(e));
-  console.log(localStorage.getItem("imgUrl"));
-});
+// shareBtn.addEventListener("click", async () => {
+//   fetch("https://api.cloudinary.com/v1_1/dhoayd4fv/image/upload", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({
+//       file: cvs.toDataURL("image/png;base64"),
+//       upload_preset: "jnrod77e",
+//     }),
+//   })
+//     .then((response) => response.json())
+//     .then((result) => {
+//       localStorage.setItem("imgUrl", result.url); //save image url to local storage
+//       console.log("upload done");
+//     })
+//     .catch((e) => console.log(e));
+//   console.log(localStorage.getItem("imgUrl"));
+// });

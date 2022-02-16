@@ -27,7 +27,7 @@ body {
   margin-left: 2rem;
 }
 
-.content {
+#content {
   width: 85vw;
   height: auto;
   margin: auto;
@@ -40,18 +40,18 @@ body {
   padding-bottom: 5rem;
 }
 
-.badge {
+#badge {
   width: 45%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 
-.info {
+#info {
   margin-bottom: 5rem;
 }
 
-.heading {
+#heading {
   color: #4a9bda;
   font-family: "Roboto", sans-serif;
   font-size: 3rem;
@@ -78,7 +78,7 @@ input {
   height: 3rem;
 }
 
-.align {
+#align {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -133,7 +133,7 @@ input {
   position: absolute;
 }
 
-.photo {
+#photo {
   width: 45%;
   height: 100%;
   align-self: center;
@@ -148,7 +148,7 @@ input {
 }
 
 @media screen and (max-width: 1200px) {
-  .photo {
+  #photo {
     width: 45%;
     height: 100%;
     align-self: center;
@@ -172,7 +172,7 @@ input {
 } */
 
 @media screen and (max-width: 1440px) {
-  .content {
+  #content {
     width: 90vw;
     margin-left: 4rem;
     justify-content: space-around;
@@ -184,7 +184,7 @@ input {
     width: 450px;
     height: 450px;
   } */
-  .heading {
+  #heading {
     font-size: 2.25rem;
   }
   .mlsc-shield {
@@ -194,7 +194,7 @@ input {
 }
 
 @media screen and (max-width: 1024px) {
-  .content {
+  #content {
     width: 90vw;
     margin-left: 2rem;
   }
@@ -205,12 +205,12 @@ input {
   p {
     font-size: 1.25rem;
   }
-  .heading {
+  #heading {
     font-size: 2.25rem;
   }
 }
 @media screen and (max-width: 768px) {
-  .content {
+  #content {
     width: 90vw;
     height: auto;
     flex-direction: column;
@@ -218,10 +218,10 @@ input {
     align-items: center;
     margin: auto;
   }
-  .badge {
+  #badge {
     width: 100%;
   }
-  .photo {
+  #photo {
     width: 100%;
   }
   /* .circle {
