@@ -181,6 +181,8 @@ input {
   margin-top: 1rem;
 }
 
+
+
 @media screen and (max-width: 1200px) {
   #photo {
     width: 45%;
@@ -257,6 +259,19 @@ input {
     font-size: 1rem;
   }
 }
+
+@media screen and (max-width: 450px){
+  #main_heading {
+    color: #4a9bda;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0.5rem;
+    margin-left: 0;
+  }
+}
+
+
 /* Modal Styling */
 
 .modal-content {
