@@ -251,6 +251,7 @@ input {
   #subm {
     height: 2rem;
     font-size: 1rem;
+    padding: 1.6rem;
   }
   .action-buttons {
     margin: 0.25rem;
