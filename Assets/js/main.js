@@ -179,7 +179,7 @@ linkedin.addEventListener("click", () => {
 });
 twitter.addEventListener("click", () => {
   window.open(
-    `https://twitter.com/intent/tweet?&url=${window.location.href}&text=I%20got%20this%20supercool%20swish%20badge%2C%20to%20get%20yours%20participate%20in%20Makeathon%204.0%0A&hashtags=mlsc%2Ctiet%2Cmake4thon%2Chashdeveloper%2Cdeveloper%2Chackathon%2Cwebdeveloper`
+    `https://twitter.com/intent/tweet?&url=https%3A%2F%2Fmake4thon.mlsctiet.co.in%2F&text=I%20got%20this%20supercool%20swish%20badge%2C%20to%20get%20yours%20participate%20in%20Makeathon%204.0.%0A&hashtags=mlsc%2Ctiet%2Cmake4thon%2Chashdeveloper%2Cdeveloper%2Chackathon%2Cwebdeveloper`
   );
 });
 
