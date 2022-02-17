@@ -216,6 +216,9 @@ input[type="text"] {
     justify-content: space-around;
     align-items: center;
   }
+  body {
+    overflow-y: visible;
+  }
 }
 
 @media screen and (max-width: 1440px) {
@@ -248,9 +251,6 @@ input[type="text"] {
   }
 }
 @media screen and (max-width: 768px) {
-  body {
-    overflow-y: visible;
-  }
   #content {
     width: 90vw;
     height: auto;
