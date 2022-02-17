@@ -19,16 +19,18 @@ body {
   scroll-behavior: smooth;
 }
 
-.logo {
-  width: 100%;
-  margin-bottom: 2rem;
+.loading {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
-
-.mlsc-shield {
-  width: 8rem;
-  height: 7rem;
-  margin-top: 2rem;
-  margin-left: 2rem;
+.stop-loading {
+  display: none;
+}
+.loading-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 #content {

@@ -26,6 +26,14 @@ document.querySelector(".form").addEventListener("submit", (e) => {
   clear();
   draw();
   throwConfetti();
+  document.querySelector(".iframe").src = "";
+  linkedin.disabled = true;
+  twitter.disabled = true;
+  document.querySelectorAll(".loading").forEach((loader) => {
+    if (loader.classList.contains("stop-loading")) {
+      loader.classList.remove("stop-loading");
+    }
+  });
 });
 
 const clear = () => {
@@ -143,6 +151,9 @@ shareBtn.addEventListener("click", async () => {
       .then((response) => response.json())
       .then((result) => {
         localStorage.setItem("imgUrl", result.url); //save image url to local storage
+        document.querySelectorAll(".loading").forEach((loader) => {
+          loader.classList.add("stop-loading");
+        });
         document.querySelector(".iframe").src = localStorage.getItem("imgUrl");
         linkedin.disabled = false;
         twitter.disabled = false;
@@ -150,6 +161,9 @@ shareBtn.addEventListener("click", async () => {
       })
       .catch((e) => console.log(e));
   } else {
+    document.querySelectorAll(".loading").forEach((loader) => {
+      loader.classList.add("stop-loading");
+    });
     document.querySelector(".iframe").src = localStorage.getItem("imgUrl");
     linkedin.disabled = false;
     twitter.disabled = false;
