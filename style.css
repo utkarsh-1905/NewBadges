@@ -12,7 +12,7 @@ html {
 body {
   width: 100vw;
   height: 100vh;
-  background-image: url("../Assets/Images/bg.png");
+  background-image: url("Assets/Images/bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -181,8 +181,6 @@ input {
   margin-top: 1rem;
 }
 
-
-
 @media screen and (max-width: 1200px) {
   #photo {
     width: 45%;
@@ -261,7 +259,7 @@ input {
   }
 }
 
-@media screen and (max-width: 450px){
+@media screen and (max-width: 450px) {
   #main_heading {
     color: #4a9bda;
     font-family: "Montserrat", sans-serif;
@@ -271,7 +269,6 @@ input {
     margin-left: 0;
   }
 }
-
 
 /* Modal Styling */
 

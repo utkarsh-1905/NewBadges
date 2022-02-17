@@ -7,6 +7,8 @@ var code = "";
 var cvs = document.getElementById("mycvs");
 var ctx = cvs.getContext("2d");
 
+const linkedin = document.querySelector(".linkedin");
+const twitter = document.querySelector(".twitter");
 // const change = (e) => {
 //     e.preventDefault();
 //     console.log(e.target.value)
@@ -147,16 +149,17 @@ shareBtn.addEventListener("click", async () => {
       .then((result) => {
         localStorage.setItem("imgUrl", result.url); //save image url to local storage
         document.querySelector(".iframe").src = localStorage.getItem("imgUrl");
+        linkedin.disabled = false;
+        twitter.disabled = false;
         // console.log("upload done");
       })
       .catch((e) => console.log(e));
   } else {
     document.querySelector(".iframe").src = localStorage.getItem("imgUrl");
+    linkedin.disabled = false;
+    twitter.disabled = false;
   }
 });
-
-const linkedin = document.querySelector(".linkedin");
-const twitter = document.querySelector(".twitter");
 
 linkedin.addEventListener("click", () => {
   window.open(
