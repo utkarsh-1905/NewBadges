@@ -38,6 +38,7 @@
         src="https://s3.amazonaws.com/logged-assets/trust-badge/2022/mlh-trust-badge-2022-white.svg"
         alt="Major League Hacking 2022 Hackathon Season"
         style="width: 90%"
+        class="mlh-badge"
     /></a>
 
 
@@ -55,17 +56,17 @@
         <label for="name">
           <h2 id="heading">NAME</h2>
         </label>
-        <input type="text" id="name" name="name" required />
+        <input type="text" class="form-control" id="name" name="name" required />
         <label for="team-name">
-          <h2 id="heading">TEAM NAME / ORGANIZER</h2>
+          <h2 id="heading">TEAM NAME</h2>
         </label>
-        <input type="text" id="team-name" name="teamName" required />
-        <div id="align"><button class="submit" id="subm">SUBMIT</button></div>
+        <input type="text" class="form-control" id="team-name" name="teamName" required />
+        <div id="align"><button class="btn btn-light subm">SUBMIT</button></div>
       </form>
       
     </div>
     <div id="photo">
-      <div>
+      <div class="rel-canvas">
       <canvas id="mycvs2" width="1000px" height="700px"></canvas>
       <canvas id="mycvs" width="1000px" height="700px"></canvas>
       <img style="display: none"; width="100%" id="badgeImg" src="../Assets/Images/badgefl1.png">

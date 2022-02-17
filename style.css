@@ -36,10 +36,10 @@ body {
   width: 85vw;
   height: auto;
   margin: auto;
-  margin-left: 6rem;
+  /* margin-left: 6rem; */
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-top: 2rem;
   padding-bottom: 5rem;
 }
@@ -99,21 +99,12 @@ input {
   align-items: center;
 }
 
-#subm {
-  background-color: #efe6e6;
-  border-radius: 30px;
-  height: 2rem;
-  width: auto;
-  color: black;
+.subm {
   font-family: "Montserrat", sans-serif;
   font-size: 1.25rem;
   font-weight: 500;
-  /* font-style: italic; */
-  /* Alignment of button */
   margin-top: 1.5rem;
   margin-right: 1rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
   cursor: pointer;
 }
 
@@ -151,15 +142,17 @@ input {
 }
 #mycvs2 {
   width: 100%;
-  height: 75%;
+  height: 100%;
   z-index: 100;
   top: 0;
   position: absolute;
 }
-
+.rel-canvas {
+  position: relative;
+}
 #photo {
   width: 45%;
-  height: 100%;
+  max-height: 100%;
   align-self: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -168,7 +161,6 @@ input {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  position: relative;
 }
 
 .qoute {
@@ -179,6 +171,29 @@ input {
   font-weight: 500;
   font-style: italic;
   margin-top: 1rem;
+}
+
+/* Modal Styling */
+
+.modal-content {
+  background-color: #161b22;
+}
+
+.modal-body {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modal-share-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 80%;
+  align-items: center;
 }
 
 @media screen and (max-width: 1200px) {
@@ -199,7 +214,7 @@ input {
 @media screen and (max-width: 1440px) {
   #content {
     width: 90vw;
-    margin-left: 4rem;
+    /* margin-left: 4rem; */
     justify-content: space-around;
   }
   p {
@@ -208,22 +223,21 @@ input {
   #heading {
     font-size: 1.5rem;
   }
-  .mlsc-shield {
-    width: 7rem;
-    height: 6rem;
-  }
 }
 
 @media screen and (max-width: 1024px) {
   #content {
     width: 90vw;
-    margin-left: 2rem;
+    /* margin-left: 2rem; */
   }
   p {
     font-size: 1.25rem;
   }
   #heading {
     font-size: 1.5rem;
+  }
+  .action-buttons {
+    width: 90%;
   }
 }
 @media screen and (max-width: 768px) {
@@ -253,42 +267,16 @@ input {
   }
   .action-buttons {
     margin: 0.25rem;
+    width: 100%;
   }
   p {
     font-size: 1rem;
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 576px) {
   #main_heading {
-    color: #4a9bda;
-    font-family: "Montserrat", sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    margin: 0.5rem;
-    margin-left: 0;
+    font-size: 1.5rem;
+    margin-top: 1rem;
   }
-}
-
-/* Modal Styling */
-
-.modal-content {
-  background-color: #161b22;
-}
-
-.modal-body {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 1rem;
-}
-
-.modal-share-btns {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  width: 80%;
-  align-items: center;
 }
