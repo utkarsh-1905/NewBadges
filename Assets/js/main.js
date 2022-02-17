@@ -2,7 +2,7 @@ const widthIm = 750;
 const heightIm = 750;
 
 var userName = "Name";
-var team = "Team / Organizer";
+var team = "Team Name";
 var code = "";
 var cvs = document.getElementById("mycvs");
 var ctx = cvs.getContext("2d");
@@ -62,12 +62,7 @@ function download() {
     e;
 
   if (
-    !(
-      userName == "Name" ||
-      userName == "" ||
-      team == "Team / Organizer" ||
-      team == ""
-    )
+    !(userName == "Name" || userName == "" || team == "Team Name" || team == "")
   ) {
     /// the key here is to set the download attribute of the a tag
     lnk.download = userName + ":" + team + ".png";
