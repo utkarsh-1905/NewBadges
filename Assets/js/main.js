@@ -2,7 +2,7 @@ const widthIm = 750;
 const heightIm = 750;
 
 var userName = "Name";
-var team = "Team / Organizer";
+var team = "Team Name";
 var code = "";
 var cvs = document.getElementById("mycvs");
 var ctx = cvs.getContext("2d");
@@ -26,6 +26,14 @@ document.querySelector(".form").addEventListener("submit", (e) => {
   clear();
   draw();
   throwConfetti();
+  document.querySelector(".iframe").src = "";
+  linkedin.disabled = true;
+  twitter.disabled = true;
+  document.querySelectorAll(".loading").forEach((loader) => {
+    if (loader.classList.contains("stop-loading")) {
+      loader.classList.remove("stop-loading");
+    }
+  });
 });
 
 const clear = () => {
@@ -62,12 +70,7 @@ function download() {
     e;
 
   if (
-    !(
-      userName == "Name" ||
-      userName == "" ||
-      team == "Team / Organizer" ||
-      team == ""
-    )
+    !(userName == "Name" || userName == "" || team == "Team Name" || team == "")
   ) {
     /// the key here is to set the download attribute of the a tag
     lnk.download = userName + ":" + team + ".png";
@@ -148,6 +151,9 @@ shareBtn.addEventListener("click", async () => {
       .then((response) => response.json())
       .then((result) => {
         localStorage.setItem("imgUrl", result.url); //save image url to local storage
+        document.querySelectorAll(".loading").forEach((loader) => {
+          loader.classList.add("stop-loading");
+        });
         document.querySelector(".iframe").src = localStorage.getItem("imgUrl");
         linkedin.disabled = false;
         twitter.disabled = false;
@@ -155,6 +161,9 @@ shareBtn.addEventListener("click", async () => {
       })
       .catch((e) => console.log(e));
   } else {
+    document.querySelectorAll(".loading").forEach((loader) => {
+      loader.classList.add("stop-loading");
+    });
     document.querySelector(".iframe").src = localStorage.getItem("imgUrl");
     linkedin.disabled = false;
     twitter.disabled = false;
@@ -170,7 +179,7 @@ linkedin.addEventListener("click", () => {
 });
 twitter.addEventListener("click", () => {
   window.open(
-    `https://twitter.com/intent/tweet?&url=${window.location.href}&text=I%20got%20this%20supercool%20swish%20badge%2C%20to%20get%20yours%20participate%20in%20Makeathon%204.0%0A&hashtags=mlsc%2Ctiet%2Cmake4thon%2Chashdeveloper%2Cdeveloper%2Chackathon%2Cwebdeveloper`
+    `https://twitter.com/intent/tweet?&url=https%3A%2F%2Fmake4thon.mlsctiet.co.in%2F&text=I%20got%20this%20supercool%20swish%20badge%2C%20to%20get%20yours%20participate%20in%20Makeathon%204.0.%0A&hashtags=mlsc%2Ctiet%2Cmake4thon%2Chashdeveloper%2Cdeveloper%2Chackathon%2Cwebdeveloper`
   );
 });
 
